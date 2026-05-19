@@ -2,10 +2,16 @@
 
 
 a = Analysis(
-    ['main.py'],
-    pathex=[],
+    ['src/main.py'],
+    pathex=['src'],
     binaries=[],
-    datas=[('Hakgyoansim_SiganpyoR.ttf', '.'), ('Quicksand.ttf', '.'), ('icon.ico', '.'), ('냠냠건강탐험대icon.png', '.'), ('team_mate', 'team_mate')],
+    datas=[
+        ('assets/fonts/Hakgyoansim_SiganpyoR.ttf', 'assets/fonts'),
+        ('assets/fonts/Quicksand.ttf', 'assets/fonts'),
+        ('assets/icons/icon.ico', 'assets/icons'),
+        ('assets/icons/냠냠건강탐험대icon.png', 'assets/icons'),
+        ('assets/team_mate', 'assets/team_mate'),
+    ],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -46,7 +52,7 @@ exe = EXE(
     upx=True,
     upx_exclude=[],
     runtime_tmpdir=None,
-    icon='icon.ico',
+    icon='assets/icons/icon.ico',
     console=False,
     disable_windowed_traceback=False,
     argv_emulation=False,

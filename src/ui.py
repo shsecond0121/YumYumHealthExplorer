@@ -12,7 +12,8 @@ def _resource_path(filename):
     if getattr(sys, 'frozen', False):
         base = sys._MEIPASS
     else:
-        base = os.path.dirname(os.path.abspath(__file__))
+        # src/의 부모(프로젝트 루트)에서 assets/ 등을 찾음
+        base = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     return os.path.join(base, filename)
 
 
@@ -155,7 +156,7 @@ class UI:
         for fname, intro_key in _TEAM_MATES:
             display_name = fname.rsplit('.', 1)[0]
             try:
-                path = _resource_path(os.path.join('team_mate', fname))
+                path = _resource_path(os.path.join('assets', 'team_mate', fname))
                 img  = pygame.image.load(path).convert_alpha()
                 img  = pygame.transform.smoothscale(img, (size, size))
             except Exception as e:
@@ -169,7 +170,7 @@ class UI:
         self._sohee_imgs = []
         for fname in _SOHEE_FILES:
             try:
-                path = _resource_path(os.path.join('team_mate', '소희', fname))
+                path = _resource_path(os.path.join('assets', 'team_mate', '소희', fname))
                 img  = pygame.image.load(path).convert_alpha()
                 img  = pygame.transform.smoothscale(img, (size, size))
             except Exception as e:
@@ -359,9 +360,9 @@ class UI:
     # 폰트 파일 매핑 — 언어별로 메인 폰트만 다르게 로드
     # ko/en: Hakgyoansim (한국어 + Latin), vi: Quicksand (Vietnamese 다이아크리틱 가독성)
     _MAIN_FONT_BY_LANG = {
-        'ko': 'Hakgyoansim_SiganpyoR.ttf',
-        'en': 'Hakgyoansim_SiganpyoR.ttf',
-        'vi': 'Quicksand.ttf',
+        'ko': 'assets/fonts/Hakgyoansim_SiganpyoR.ttf',
+        'en': 'assets/fonts/Hakgyoansim_SiganpyoR.ttf',
+        'vi': 'assets/fonts/Quicksand.ttf',
     }
 
     def _init_fonts(self, lang_code='ko'):
@@ -372,7 +373,7 @@ class UI:
         except Exception:
             self.font_popup = pygame.font.Font(None, 22)
 
-        font_file = self._MAIN_FONT_BY_LANG.get(lang_code, 'Hakgyoansim_SiganpyoR.ttf')
+        font_file = self._MAIN_FONT_BY_LANG.get(lang_code, 'assets/fonts/Hakgyoansim_SiganpyoR.ttf')
         try:
             path = _resource_path(font_file)
             self.font_large  = pygame.font.Font(path, 52)

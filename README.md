@@ -31,7 +31,7 @@
 ```bash
 # Python 3.12 이상 권장
 pip install -r requirements.txt
-python main.py
+python src/main.py
 ```
 
 ### 3) 직접 빌드하기
@@ -64,23 +64,31 @@ python -m PyInstaller main.spec --noconfirm
 
 ```
 YumYumHealthExplorer/
-├── main.py                  # 진입점
-├── game.py                  # Game 클래스, 상태머신
-├── player.py                # 플레이어 캐릭터
-├── ui.py                    # HUD, 메뉴, 도감, 업적 화면
-├── background.py            # 4종 스테이지 배경
-├── obstacle.py              # 장애물
-├── collectible.py           # 25종 음식 + 하트
-├── skill.py                 # 4종 스킬 시스템
-├── achievement.py           # 50개 업적
-├── debuff.py                # 11종 지속 효과
-├── power_up.py              # 자석/방어막
-├── particles.py             # 파티클 이펙트
-├── sound_manager.py         # 사운드
-├── lang.py                  # ko/en/vi 다국어
 ├── main.spec                # PyInstaller 빌드 스펙
-├── team_mate/               # 팀원·캐릭터 일러스트
-├── fonts_license/           # 번들 폰트 라이선스
+├── requirements.txt         # Python 의존성
+│
+├── src/                     # 소스코드
+│   ├── main.py              # 진입점
+│   ├── game.py              # Game 클래스, 상태머신
+│   ├── player.py            # 플레이어 캐릭터
+│   ├── ui.py                # HUD, 메뉴, 도감, 업적 화면
+│   ├── background.py        # 4종 스테이지 배경
+│   ├── obstacle.py          # 장애물
+│   ├── collectible.py       # 25종 음식 + 하트
+│   ├── skill.py             # 4종 스킬 시스템
+│   ├── achievement.py       # 50개 업적
+│   ├── debuff.py            # 11종 지속 효과
+│   ├── power_up.py          # 자석/방어막
+│   ├── particles.py         # 파티클 이펙트
+│   ├── sound_manager.py     # 사운드
+│   └── lang.py              # ko/en/vi 다국어
+│
+├── assets/                  # 그래픽·폰트 리소스
+│   ├── fonts/               # 번들 폰트 (Hakgyoansim, Quicksand)
+│   ├── icons/               # 게임/EXE 아이콘
+│   └── team_mate/           # 팀원·캐릭터 일러스트
+│
+├── fonts_license/           # 번들 폰트 OFL 라이선스
 └── docs/                    # 플레이가이드 + 음식 데이터 시트
 ```
 
