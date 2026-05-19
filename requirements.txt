@@ -1,0 +1,4 @@
+pygame-ce>=2.5.7
+
+# Build dependency (optional, only needed if you want to build the .exe yourself):
+# pyinstaller>=6.0
